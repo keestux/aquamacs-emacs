@@ -629,16 +629,18 @@ even if it's the only visible frame."
       (delete-window-if-created-for-buffer)))
 
 (defun aquamacs-delete-frame (&optional frame)
-  (condition-case nil 
-      (delete-frame (or frame (selected-frame)))
-    (error   
-     (let ((f (or frame (selected-frame))))
-       (run-hook-with-args 'delete-frame-functions f)
-       (make-frame-invisible f t)
-       ;; select messages to it gets any input
-       (if (find-all-frames-internal (get-buffer "*Messages*"))
-	   (select-frame (car (find-all-frames-internal 
-			       (get-buffer "*Messages*"))))))))) 
+  (with-current-buffer (current-buffer) ; delete-frame changes current buffer
+    ;; current buffer must be preserved (e.g., for other kill-buffer-hook functions)
+    (condition-case nil 
+	(delete-frame (or frame (selected-frame)))
+      (error   
+       (let ((f (or frame (selected-frame))))
+	 (run-hook-with-args 'delete-frame-functions f)
+	 (make-frame-invisible f t)
+	 ;; select messages to it gets any input
+	 (if (find-all-frames-internal (get-buffer "*Messages*"))
+	     (select-frame (car (find-all-frames-internal 
+				 (get-buffer "*Messages*"))))))))))
 
 ;; delete window when buffer is killed
 ;; but only do so if aquamacs opened a new frame&window for
