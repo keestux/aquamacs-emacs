@@ -142,7 +142,7 @@ nor Gnuplot is not recognized by maxima"))))
     (declare (special *mread-prompt* ))
     (and (consp at) (set-env at))
     (cond ((null at)
-	   ($frame 0 nil)))
+	   (break-frame 0 nil)))
     (catch 'step-continue
       (catch *quit-tag*
 	(unwind-protect
