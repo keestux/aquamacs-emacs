@@ -2,7 +2,9 @@ Tasks that should be addressed for Imaxima plugin for Aquamacs:
 
 as of 2010-Jul-7:
 
-Modify make-imaxima script to build PDF and info files from imaxima.texi (requires version.texi)
+Modify make-imaxima script to build PDF and info files from imaxima.texi (requires version.texi)  DONE
 
-maxima.el needs to have its 2 major modes tweaked to call `run-mode-hooks' instead of simply `mode-hooks' (see elisp reference manual)
+maxima.el needs to have its 2 major modes tweaked to call `run-mode-hooks' instead of simply `mode-hooks' (see elisp reference manual) -- contact maintainers
+
+Better versioning system for the imaxima-plugin.mpkg; either append date when built, or incremented version number when content is updated.
 
