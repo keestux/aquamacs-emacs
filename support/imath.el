@@ -240,7 +240,8 @@ are referenced from the HTML document by using <IMG> tag.
 	(if (featurep 'xemacs)
 	    (let ((ext (extent-at begin)))
 	      (if ext (delete-extent ext)))
-	  (remove-text-properties begin end '(display) (current-buffer)))
+	  (remove-text-properties begin end '(display nil rear-nonsticky nil)
+				  (current-buffer)))
 	(if (eql ftype 'both)
 	    (multiple-value-bind (la-begin la-end la-ftype)
 		(find-formula 'latex)
@@ -388,7 +389,8 @@ placed right after the form."
 				   (list 'display
 					 (get-text-property 1
 							    'display
-							    (imaxima-make-image latex-formula-or-epsfile eps-or-latex t)))
+							    (imaxima-make-image latex-formula-or-epsfile eps-or-latex t))
+					 'rear-nonsticky t)
 				   (current-buffer)))))))))
 
 (defun get-image-from-imaxima-1 (latex-string)
@@ -418,7 +420,8 @@ placed right after the form."
 				   (list 'display
 					 (get-text-property 1
 							    'display
-							    (imaxima-make-image latex-string 'latex  t)))
+							    (imaxima-make-image latex-string 'latex  t))
+					 'rear-nonsticky t)
 				   str-to-insert))
 	    (goto-char pos)
 	    (insert str-to-insert))))))
@@ -446,7 +449,8 @@ placed right after the form."
 		      (insert-extent ext 0 (length str-to-insert) t str-to-insert)))
 	      (add-text-properties 0 (length str-to-insert)
 				   (list 'display
-					 (get-text-property 1 'display latex-string))
+					 (get-text-property 1 'display latex-string)
+					 'rear-nonsticky t)
 				   str-to-insert))
 	    (insert str-to-insert))))))
 
