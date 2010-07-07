@@ -5,8 +5,8 @@
 BUILD_DIR=`pwd`
 
 cd "$BUILD_DIR"/texinfo
-texi2pdf --output="$BUILD_DIR/support/doc/imaxima.pdf" --clean imaxima.texi
-makeinfo --output="$BUILD_DIR/support/info/imaxima.info" imaxima.texi
+/usr/bin/texi2pdf --output="$BUILD_DIR/support/doc/imaxima.pdf" --clean imaxima.texi
+/usr/bin/makeinfo --output="$BUILD_DIR/support/info/imaxima.info" imaxima.texi
 
 cd "$BUILD_DIR"
 /Developer/usr/bin/packagemaker --doc imaxima-plugin_2010-07-07.pmdoc --out imaxima-plugin_2010-07-07.mpkg
