@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "renaming '$2/aquamacs-imaxima_manpath' to '$2/aquamacs-imaxima'"
+mv "$2/aquamacs-imaxima_manpath" "$2/aquamacs-imaxima"

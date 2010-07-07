@@ -1,0 +1,11 @@
+This plugin installs the necessary files to support running Imaxima and Imath in Aquamacs.  (A TeX installation is also required.)  See http://sites.google.com/site/imaximaimath/ for more information on Imaxima and Imath.
+
+=====================================
+
+This plugin will install:
+
+Maxima.app and Gnuplot.app, in /Applications ;
+
+lisp and documentation files in /Library/Application Support/Aquamacs Emacs/imaxima ;
+
+and files "aquamacs-imaxima" in /etc/paths.d and /etc/manpaths.d .

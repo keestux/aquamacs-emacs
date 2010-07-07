@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Build the Imaxima/Imath/Maxima installer package
+
+BUILD_DIR=`pwd`
+
+cd "$BUILD_DIR"
+/Developer/usr/bin/packagemaker --doc imaxima-plugin_2010-07-07.pmdoc --out imaxima-plugin_2010-07-07.mpkg

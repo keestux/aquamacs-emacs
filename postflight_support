@@ -1,0 +1,16 @@
+#!/bin/sh
+
+GROUP=`id -gn ${USER}`
+echo "changing ownership of '$2' to ${USER}:${GROUP}"
+chown -R ${USER}:${GROUP} "$2"
+
+echo "linking to lisp, doc, and info files in app bundles"
+ln -s /Applications/Maxima.app/Contents/Resources/share/maxima/5.21.1/emacs/maxima.el "$2/maxima.el"
+ln -s /Applications/Maxima.app/Contents/Resources/share/maxima/5.21.1/emacs/maxima-font-lock.el "$2/maxima-font-lock.el"
+ln -s /Applications/Maxima.app/Contents/Resources/share/maxima/5.21.1/doc/html/intromax.html "$2/doc/intromax.html"
+ln -s /Applications/Maxima.app/Contents/Resources/share/maxima/5.21.1/doc/html/maxima.html "$2/doc/maxima.html"
+ln -s /Applications/Gnuplot.app/Contents/Resources/share/info/gnuplot.info "$2/info/gnuplot.info"
+ln -s /Applications/Maxima.app/Contents/Resources/info/maxima.info "$2/info/maxima.info"
+ln -s /Applications/Maxima.app/Contents/Resources/info/maxima.info-1 "$2/info/maxima.info-1"
+ln -s /Applications/Maxima.app/Contents/Resources/info/maxima.info-2 "$2/info/maxima.info-2"
+ln -s /Applications/Maxima.app/Contents/Resources/info/maxima.info-3 "$2/info/maxima.info-3"
