@@ -325,12 +325,12 @@ This hook is called after imaxima has started Maxima."
 
 (defcustom imaxima-maxima-options
   (if (eq system-type 'windows-nt)
-      ;; in this case the appropriate value is the empty string.
-      ""
-    (format "--preload-lisp=%s" imaxima-lisp-file))
+      ;; in this case use no arguments
+      nil
+    (list (format "--preload-lisp=%s" imaxima-lisp-file)))
   "Arguments passed to Maxima."
   :group 'imaxima
-  :type '(string))
+  :type '(repeat string))
 
 (defface imaxima-latex-error-face
   '((t (:foreground "Blue" :underline t)))
@@ -1204,8 +1204,7 @@ Please customize the option `imaxima-lisp-file'."))
 	      "imaxima"
 	      imaxima-maxima-program
 	      nil
-	      (split-string
-	       imaxima-maxima-options))))
+	       imaxima-maxima-options)))
 	(save-excursion
 	  (set-buffer mbuf)
 	  (setq imaxima-process (get-buffer-process mbuf))
