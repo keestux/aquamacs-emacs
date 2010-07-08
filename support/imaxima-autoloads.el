@@ -4,7 +4,7 @@
 ;; they work out-of-the-box without user customization.
 
 (autoload 'imaxima "imaxima" "Maxima frontend" t)
-(autoload 'imath "imath" "Interactive Math mode" t)
+(autoload 'imath-mode "imath" "Interactive Math mode" t)
 (autoload 'maxima "maxima" "Interactive Maxima session" t)
 (autoload 'maxima-mode "maxima" "Major mode for writing Maxima programs" t)
 (autoload 'maxima-minor-mode "maxima" "Minor mode for working with Maxima" t)
