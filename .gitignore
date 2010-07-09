@@ -1,4 +1,4 @@
 # ignore generated PDF and info files
 imaxima.info
-imaxima.PDF
+imaxima.pdf
 imaxima-plugin*.mpkg
