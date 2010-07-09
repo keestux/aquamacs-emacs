@@ -460,7 +460,9 @@ NOSKIP is non-nil, don't skip the current highlighted word (if any)."
       (goto-char misspell-end)
       (push-mark misspell-beg 'no-msg 'activate)
       (setq word (buffer-substring misspell-beg misspell-end))
-      (ns-spellchecker-show-word word))))  
+      (ns-spellchecker-show-word word)))
+  (if (and flyspell-mode-auto-on (not flyspell-mode))
+      (turn-on-flyspell)))
 
 (defun ns-start-spellchecker ()
   "Show NSSpellChecker spellingPanel, and call
